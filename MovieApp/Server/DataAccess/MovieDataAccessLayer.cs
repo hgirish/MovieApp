@@ -13,6 +13,21 @@ namespace MovieApp.Server.DataAccess
         {
             _dbContext = dbContext.CreateDbContext();
         }
+
+        public async Task AddMovie(Movie movie)
+        {
+            try
+            {
+                await _dbContext.Movies.AddAsync(movie);
+                await _dbContext.SaveChangesAsync();
+            }
+            catch 
+            {
+
+                throw;
+            }
+        }
+
         public async Task<List<Genre>> GetGenre()
         {
             return await _dbContext.Genres.AsNoTracking().ToListAsync();
