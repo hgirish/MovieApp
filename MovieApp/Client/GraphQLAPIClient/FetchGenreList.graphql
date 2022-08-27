@@ -1,0 +1,6 @@
+﻿query FetchGenreList{
+  genreList{
+    genreId,
+    genreName
+  }
+}
